@@ -2,14 +2,25 @@ import { useState } from "react";
 
 export default function Calculator() {
   const [data, setData] = useState({
-    distance: 500,
-    weight: 1,
-    type: "standart",
+    zone: "city", // зона доставки
+    distance: 0, // расстояние в км (для "Вне города" и "По Беларуси")
+    loaders: 1, // количество грузчиков
   });
-  const rates = { standart: 25, express: 40, refrigerator: 55 };
-  const price = Math.round(
-    (data.distance * (10 + data.weight * 5) * rates[data.type]) / 10,
-  );
+
+  // Расчёт стоимости
+  const calculatePrice = () => {
+    const loadersPrice = data.loaders * 20;
+
+    if (data.zone === "city") {
+      // По городу +5 км — фиксированная цена
+      return 40 + loadersPrice;
+    } else {
+      // Вне города или По Беларуси — формула (1.2 * км) + 40
+      return Math.round(1.2 * data.distance + 40) + loadersPrice;
+    }
+  };
+
+  const price = calculatePrice();
 
   return (
     <section id="calc" style={{ background: "#fff" }}>
@@ -19,44 +30,58 @@ export default function Calculator() {
         <div className="calc-wrap">
           <div className="calc-row">
             <div>
-              <label>Расстояние, км</label>
+              <label>Зона доставки</label>
+              <select
+                value={data.zone}
+                onChange={(e) => setData({ ...data, zone: e.target.value })}
+              >
+                <option value="city">По городу +5 км</option>
+                <option value="outside">Вне города</option>
+                <option value="belarus">По Беларуси</option>
+              </select>
+            </div>
+            <div>
+              <label>Количество грузчиков</label>
               <input
                 type="number"
-                min="1"
-                value={data.distance}
+                min="0"
+                max="10"
+                value={data.loaders}
                 onChange={(e) =>
-                  setData({ ...data, distance: +e.target.value })
+                  setData({ ...data, loaders: Math.max(0, +e.target.value) })
                 }
               />
             </div>
-            <div>
-              <label>Вес груза, тонн</label>
-              <input
-                type="number"
-                min="0.1"
-                step="0.1"
-                value={data.weight}
-                onChange={(e) => setData({ ...data, weight: +e.target.value })}
-              />
-            </div>
           </div>
-          <div className="calc-row">
-            <div>
-              <label>Тип перевозки</label>
-              <select
-                value={data.type}
-                onChange={(e) => setData({ ...data, type: e.target.value })}
-              >
-                <option value="standart">Стандарт</option>
-                <option value="express">Экспресс</option>
-                <option value="refrigerator">Рефрижератор</option>
-              </select>
+
+          {/* Поле расстояния показывается только для "Вне города" и "По Беларуси" */}
+          {data.zone !== "city" && (
+            <div className="calc-row">
+              <div>
+                <label>Расстояние, км</label>
+                <input
+                  type="number"
+                  min="1"
+                  value={data.distance}
+                  onChange={(e) =>
+                    setData({ ...data, distance: +e.target.value })
+                  }
+                />
+              </div>
+              <div></div>
             </div>
-            <div></div>
-          </div>
+          )}
+
           <div className="calc-result">
             Примерная стоимость:{" "}
             <strong>{price.toLocaleString("ru-RU")} BYN</strong>
+            <div style={{ fontSize: "14px", marginTop: "8px", opacity: 0.8 }}>
+              {data.zone === "city"
+                ? "Фиксированная ставка по городу"
+                : `Расстояние: ${data.distance} км`}
+              {" • "}
+              Грузчиков: {data.loaders} × 20 BYN
+            </div>
           </div>
         </div>
       </div>

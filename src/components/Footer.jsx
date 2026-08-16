@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Contact() {
+export default function Footer() {
   const [form, setForm] = useState({ name: "", phone: "", msg: "" });
 
   const submit = (e) => {
@@ -20,7 +20,13 @@ export default function Contact() {
             </p>
             <p>
               <strong>Телефон:</strong>{" "}
-              <a href="tel:+375298384338">+375 29 838 4338</a>
+              <a className="contact-phone" href="tel:+375298384338">
+                +375 29 838 4338
+              </a>
+              <a className="contact-phone" href="tel:+375447858838">
+                {" "}
+                +375 44 785 88 38
+              </a>
             </p>
             <p>
               <strong>Email:</strong> info@esymovemogilev.by

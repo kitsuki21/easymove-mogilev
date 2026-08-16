@@ -6,23 +6,27 @@ import "./App.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Calculator from "./components/Calculator";
-import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import Services from "./components/Services";
 import Advantages from "./components/Advantages";
-import Fleet from "./components/Fleet";
 import Process from "./components/Process";
+import Cargo from "./components/Cargo";
+import SEOText from "./components/Seotext";
 
 function App() {
   return (
     <>
       <Header />
-      <Hero />
-      <Services />
-      <Advantages />
-      <Fleet />
-      <Process />
-      <Calculator />
-      <Contact />
+      <main>
+        <Hero />
+        <Services />
+        <Advantages />
+        <Cargo />
+        <Process />
+        <Calculator />
+      </main>
+      <SEOText />
+      <Footer />
     </>
   );
 }

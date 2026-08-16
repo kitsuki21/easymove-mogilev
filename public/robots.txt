@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://easymove-mogilev.netlify.app/sitemap.xml
