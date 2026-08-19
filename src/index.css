@@ -34,7 +34,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 0;
 }
 .logo {
   display: flex;
@@ -362,6 +361,31 @@ footer {
   color: #aaa;
   padding: 30px 0;
   text-align: center;
+}
+
+.error-text {
+  display: block;
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 8px;
+  min-height: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  transition: border-color 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent) !important;
+}
+
+.contact-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* Responsive */
