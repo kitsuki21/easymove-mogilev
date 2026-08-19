@@ -37,13 +37,16 @@ header {
   padding: 18px 0;
 }
 .logo {
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--primary);
+  display: flex;
+  align-items: center;
 }
-.logo span {
-  color: var(--accent);
+
+.logo img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
 }
+
 .nav ul {
   display: flex;
   list-style: none;

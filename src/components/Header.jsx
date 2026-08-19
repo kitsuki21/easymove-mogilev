@@ -7,7 +7,11 @@ export default function Header() {
     <header>
       <div className="container nav">
         <div className="logo">
-          easy<span>Move</span>Mogilev
+          <img
+            className="img-logo"
+            src="/logo.png"
+            alt="esyMove Mogilev - грузоперевозки"
+          />
         </div>
         <ul className={menuOpen ? "active" : ""}>
           <li>
@@ -17,7 +21,7 @@ export default function Header() {
           </li>
           <li>
             <a href="#fleet" onClick={() => setMenuOpen(false)}>
-              Автопарк
+              Ваши фото
             </a>
           </li>
           <li>
@@ -31,11 +35,8 @@ export default function Header() {
             </a>
           </li>
         </ul>
-        <a href="tel:+375298384338" className="phone">
-          📞 +375 29 838 4338
-        </a>
-        <a href="tel:+375298384338" className="phone">
-          📞 +375 44 785 8838
+        <a href="tel:+375291234567" className="phone">
+          📞 +375 (29) 123-45-67
         </a>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           ☰
