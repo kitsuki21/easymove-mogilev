@@ -10,7 +10,7 @@ export default function Header() {
           <img
             className="img-logo"
             src="/logo.png"
-            alt="esyMove Mogilev - грузоперевозки"
+            alt="easyMove Mogilev - грузоперевозки"
           />
         </div>
         <ul className={menuOpen ? "active" : ""}>
