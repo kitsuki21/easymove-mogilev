@@ -6,7 +6,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Calculator from "./components/Calculator";
-import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 import Services from "./components/Services";
 import Advantages from "./components/Advantages";
 import Process from "./components/Process";
@@ -26,7 +26,7 @@ function App() {
         <Calculator />
       </main>
       <SEOText />
-      <Footer />
+      <Contact />
     </>
   );
 }
