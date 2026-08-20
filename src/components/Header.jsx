@@ -35,8 +35,8 @@ export default function Header() {
             </a>
           </li>
         </ul>
-        <a href="tel:+375291234567" className="phone">
-          📞 +375 (29) 123-45-67
+        <a href="tel:+375447858838" className="phone">
+          📞 +375 (44) 785-88-38
         </a>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           ☰

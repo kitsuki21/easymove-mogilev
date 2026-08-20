@@ -116,12 +116,7 @@ export default function Contact() {
             </p>
             <p>
               <strong>Телефон:</strong>{" "}
-              <a
-                href="tel:+375291234567"
-                style={{ color: "#ff7a00", textDecoration: "none" }}
-              >
-                +375 (29) 123-45-67
-              </a>
+              <a href="tel:+375447858838">+375 (44) 785-88-38</a>
             </p>
             <p>
               <strong>Email:</strong> info@esymovemogilev.by
