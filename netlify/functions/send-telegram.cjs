@@ -53,7 +53,7 @@ exports.handler = async function (event) {
       };
     }
 
-    const message = `🚚 <b>Новая заявка с сайта esyMoveMogilev</b>
+    const message = `🚚 <b>Новая заявка с сайта easyMoveMogilev</b>
 
  <b>Имя:</b> ${name}
 📞 <b>Телефон:</b> ${phone}
