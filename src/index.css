@@ -432,6 +432,315 @@ footer {
   font-size: 15px;
 }
 
+/* ===== СЕКЦИЯ КОНТАКТОВ ===== */
+.contact-section {
+  padding: 80px 0;
+  background: #1a1f2e;
+  color: #fff;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* ===== СЕТКА ДВУХ КОЛОНОК ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ===== ЛЕВАЯ КОЛОНКА - КОНТАКТЫ ===== */
+.contact-info-block {
+  padding: 20px 0;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-info p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.contact-info strong {
+  color: #ff7a00;
+  font-weight: 600;
+}
+
+.contact-phone-link {
+  color: #5a8dee;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.contact-phone-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.contact-info-note {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+/* ===== ПРАВАЯ КОЛОНКА - ФОРМА ===== */
+.form-wrapper {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* ===== INPUT ПОЛЯ ===== */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: #ff7a00;
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.1);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ===== ТЕЛЕФОННОЕ ПОЛЕ ===== */
+.phone-input-container {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.phone-input-container:focus-within {
+  border-color: #ff7a00;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.1);
+}
+
+.phone-input-container .PhoneInput {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.phone-input-container .PhoneInputCountry {
+  display: flex !important;
+  align-items: center !important;
+  padding: 14px 12px 14px 18px !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background: transparent !important;
+  margin: 0 !important;
+  flex-shrink: 0;
+}
+
+.phone-input-container .PhoneInputCountrySelect {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: transparent !important;
+  border: none !important;
+  color: #0e0e0e !important;
+  font-size: 15px !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.phone-input-container .PhoneInputCountryFlag {
+  border-radius: 3px !important;
+}
+
+.phone-input-container .PhoneInputInput {
+  flex: 1 !important;
+  background: transparent !important;
+  border: none !important;
+  color: #f9f9f9 !important;
+  font-size: 15px !important;
+  padding: 14px 18px !important;
+  width: 100% !important;
+}
+
+.phone-input-container .PhoneInputInput:focus {
+  outline: none !important;
+}
+
+.phone-input-container .PhoneInputInput::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ===== КНОПКА ===== */
+.btn-primary {
+  background-color: #ff7a00;
+  border: none;
+  color: #fff;
+  padding: 16px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #e56a00;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 122, 0, 0.3);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-submit {
+  margin-top: 10px;
+}
+
+/* ===== ОШИБКИ ===== */
+.error-text {
+  display: block;
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.form-control.input-error {
+  border-color: #ff6b6b !important;
+  background-color: rgba(255, 107, 107, 0.1) !important;
+}
+
+.phone-input-container.input-error {
+  border-color: #ff6b6b !important;
+  background-color: rgba(255, 107, 107, 0.1) !important;
+}
+
+/* ===== УБИРАЕМ БЕЛЫЙ ФОН ПРИ АВТОЗАПОЛНЕНИИ ===== */
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.08) inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Для телефонного поля */
+.phone-input-container:-webkit-autofill,
+.phone-input-container:-webkit-autofill:hover,
+.phone-input-container:-webkit-autofill:focus,
+.phone-input-container:-webkit-autofill:active {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.phone-input-container .PhoneInputInput:-webkit-autofill,
+.phone-input-container .PhoneInputInput:-webkit-autofill:hover,
+.phone-input-container .PhoneInputInput:-webkit-autofill:focus,
+.phone-input-container .PhoneInputInput:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.08) inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Для textarea */
+textarea.form-control:-webkit-autofill,
+textarea.form-control:-webkit-autofill:hover,
+textarea.form-control:-webkit-autofill:focus,
+textarea.form-control:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.08) inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 968px) {
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-info-block {
+    order: 2;
+  }
+
+  .form-wrapper {
+    order: 1;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 50px 0;
+  }
+
+  .contact-info {
+    gap: 15px;
+  }
+
+  .form-control,
+  .phone-input-container .PhoneInputInput,
+  .phone-input-container .PhoneInputCountrySelect {
+    font-size: 16px;
+  }
+
+  .btn-primary {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+}
+
 /* Адаптивность для калькулятора */
 @media (max-width: 768px) {
   .calc-row {

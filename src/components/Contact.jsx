@@ -1,30 +1,20 @@
 import { useState } from "react";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", phone: "", msg: "" });
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    msg: "",
+  });
   const [errors, setErrors] = useState({});
   const [isSending, setIsSending] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const patterns = {
     name: /^[А-Яа-яЁёA-Za-z\s]+$/,
-    phone: /^\+375\s(29|33|25|44)\s\d{3}-\d{2}-\d{2}$/,
     msg: /[А-Яа-яЁёA-Za-z0-9]/,
-  };
-
-  const formatPhone = (value) => {
-    const digits = value.replace(/\D/g, "");
-    let cleanDigits = digits;
-    if (digits.startsWith("375")) cleanDigits = digits.slice(3);
-    else if (digits.startsWith("8")) cleanDigits = digits.slice(1);
-
-    cleanDigits = cleanDigits.slice(0, 9);
-    let formatted = "+375 ";
-    if (cleanDigits.length > 0) formatted += cleanDigits.slice(0, 2);
-    if (cleanDigits.length >= 3) formatted += " " + cleanDigits.slice(2, 5);
-    if (cleanDigits.length >= 6) formatted += "-" + cleanDigits.slice(5, 7);
-    if (cleanDigits.length >= 8) formatted += "-" + cleanDigits.slice(7, 9);
-    return formatted;
   };
 
   const validateField = (name, value) => {
@@ -36,9 +26,8 @@ export default function Contact() {
         if (value.trim().length < 2) return "Имя слишком короткое";
         return "";
       case "phone":
-        if (!value.trim()) return "Введите номер телефона";
-        if (!patterns.phone.test(value))
-          return "Формат: +375 (29|33|25|44) XXX-XX-XX";
+        if (!value) return "Введите номер телефона";
+        if (value.length < 10) return "Номер слишком короткий";
         return "";
       case "msg":
         if (!value.trim()) return "Напишите комментарий";
@@ -54,9 +43,14 @@ export default function Contact() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const newValue = name === "phone" ? formatPhone(value) : value;
-    setForm({ ...form, [name]: newValue });
-    setErrors({ ...errors, [name]: validateField(name, newValue) });
+    setForm({ ...form, [name]: value });
+    setErrors({ ...errors, [name]: validateField(name, value) });
+    setIsSuccess(false);
+  };
+
+  const handlePhoneChange = (value) => {
+    setForm({ ...form, phone: value });
+    setErrors({ ...errors, phone: validateField("phone", value) });
     setIsSuccess(false);
   };
 
@@ -106,94 +100,99 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact-section">
       <div className="container">
         <h2 className="section-title">Свяжитесь с нами</h2>
+
         <div className="contact-grid">
-          <div className="contact-info">
-            <p>
-              <strong>Адрес:</strong> г. Могилёв, ул. Логистическая, 25
-            </p>
-            <p>
-              <strong>Телефон:</strong>{" "}
-              <a href="tel:+375447858838">+375 (44) 785-88-38</a>
-            </p>
-            <p>
-              <strong>Email:</strong> info@esymovemogilev.by
-            </p>
-            <p>
-              <strong>Режим работы:</strong> круглосуточно, без выходных
-            </p>
-            <p style={{ marginTop: 20 }}>
-              Оставьте заявку — и наш менеджер свяжется с вами в течение 15
-              минут, рассчитает точную стоимость и подберёт оптимальный маршрут.
-            </p>
+          {/* ЛЕВАЯ КОЛОНКА - Контактная информация */}
+          <div className="contact-info-block">
+            <div className="contact-info">
+              <p>
+                <strong>Адрес:</strong> г. Дрибин, ул. Юбилейная, 2
+              </p>
+              <p>
+                <strong>Телефон:</strong>{" "}
+                <a href="tel:+37544785-88-38" className="contact-phone-link">
+                  +375 (44) 785-88-38
+                </a>
+              </p>
+              <p>
+                <strong>Email:</strong> info@easymovemogilev.by
+              </p>
+              <p>
+                <strong>Режим работы:</strong> круглосуточно, без выходных
+              </p>
+              <p className="contact-info-note">
+                Оставьте заявку — и наш менеджер свяжется с вами в течение 15
+                минут, рассчитает точную стоимость и подберёт оптимальный
+                маршрут.
+              </p>
+            </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit} noValidate>
-            <div>
-              <input
-                name="name"
-                required
-                placeholder="Ваше имя"
-                value={form.name}
-                onChange={handleChange}
-                style={{
-                  borderColor: errors.name
-                    ? "#ff4444"
-                    : "rgba(255,255,255,0.2)",
-                }}
-              />
-              {errors.name && <span className="error-text">{errors.name}</span>}
-            </div>
+          {/* ПРАВАЯ КОЛОНКА - Форма */}
+          <div className="form-wrapper">
+            <form onSubmit={handleSubmit} noValidate>
+              <div className="form-group">
+                <input
+                  name="name"
+                  required
+                  placeholder="Ваше имя"
+                  value={form.name}
+                  onChange={handleChange}
+                  className={`form-control ${errors.name ? "input-error" : ""}`}
+                />
+                {errors.name && (
+                  <span className="error-text">{errors.name}</span>
+                )}
+              </div>
 
-            <div>
-              <input
-                name="phone"
-                required
-                type="tel"
-                placeholder="+375 29 123-45-67"
-                value={form.phone}
-                onChange={handleChange}
-                style={{
-                  borderColor: errors.phone
-                    ? "#ff4444"
-                    : "rgba(255,255,255,0.2)",
-                }}
-              />
-              {errors.phone && (
-                <span className="error-text">{errors.phone}</span>
-              )}
-            </div>
+              <div className="form-group">
+                <div
+                  className={`phone-input-container ${errors.phone ? "input-error" : ""}`}
+                >
+                  <PhoneInput
+                    international
+                    defaultCountry="BY"
+                    value={form.phone}
+                    onChange={handlePhoneChange}
+                    placeholder="+375 (29) 123-45-67"
+                  />
+                </div>
+                {errors.phone && (
+                  <span className="error-text">{errors.phone}</span>
+                )}
+              </div>
 
-            <div>
-              <textarea
-                name="msg"
-                required
-                placeholder="Комментарий (откуда, куда, что везём)"
-                value={form.msg}
-                onChange={handleChange}
-                style={{
-                  borderColor: errors.msg ? "#ff4444" : "rgba(255,255,255,0.2)",
-                }}
-              />
-              {errors.msg && <span className="error-text">{errors.msg}</span>}
-            </div>
+              <div className="form-group">
+                <textarea
+                  name="msg"
+                  required
+                  placeholder="Комментарий (откуда, куда, что везём)"
+                  value={form.msg}
+                  onChange={handleChange}
+                  className={`form-control ${errors.msg ? "input-error" : ""}`}
+                  rows="4"
+                />
+                {errors.msg && <span className="error-text">{errors.msg}</span>}
+              </div>
 
-            <button
-              type="submit"
-              className="btn"
-              disabled={
-                isSending || Object.values(errors).some((e) => e !== "")
-              }
-            >
-              {isSending
-                ? "Отправка..."
-                : isSuccess
-                  ? "✓ Заявка отправлена!"
-                  : "Отправить заявку"}
-            </button>
-          </form>
+              <button
+                type="submit"
+                className="btn-primary form-submit"
+                disabled={
+                  isSending || Object.values(errors).some((e) => e !== "")
+                }
+              >
+                {isSending
+                  ? "Отправка..."
+                  : isSuccess
+                    ? "✓ Заявка отправлена!"
+                    : "Отправить заявку"}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
