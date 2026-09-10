@@ -118,7 +118,13 @@ export default function Contact() {
                 </a>
               </p>
               <p>
-                <strong>Email:</strong> info@easymovemogilev.by
+                <strong>Email:</strong>{" "}
+                <a
+                  className="contact-phone-link"
+                  href="mailto:easymovemogilev@gmail.com"
+                >
+                  easymovemogilev@gmail.com
+                </a>
               </p>
               <p>
                 <strong>Режим работы:</strong> круглосуточно, без выходных
