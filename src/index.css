@@ -818,21 +818,65 @@ textarea.form-control:-webkit-autofill:active {
 }
 
 /* ===== МОБИЛЬНОЕ МЕНЮ ===== */
+/* ===== МОБИЛЬНАЯ ВЕРСИЯ ===== */
 @media (max-width: 768px) {
-  /* Скрываем телефоны в шапке на мобильных */
+  /* Шапка на мобильном */
+  .nav {
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    flex: 1;
+  }
+
+  .img-logo {
+    height: 40px;
+  }
+
+  /* Телефоны видны в шапке на мобильном */
   .header-phones {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-end;
+    margin-right: 10px;
+  }
+
+  .header-phone {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    padding: 2px 0;
+  }
+
+  .header-phone .phone-number {
+    color: #1a1f2e;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .operator-indicator {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* Скрываем телефоны при открытом меню */
+  .nav.mobile-menu-open .header-phones {
     display: none;
   }
 
-  /* Показываем кнопку меню */
+  /* Кнопка меню */
   .menu-toggle {
     display: block;
     background: transparent;
     border: none;
-    font-size: 28px;
+    font-size: 24px;
     color: #1a1f2e;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 5px;
     line-height: 1;
   }
 
@@ -874,37 +918,9 @@ textarea.form-control:-webkit-autofill:active {
     border-bottom: none;
   }
 
-  /* Показываем телефоны в открытом мобильном меню */
-  .nav.mobile-menu-open .header-phones {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin: 15px 0;
-    padding: 15px 0;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-  }
-
-  .nav.mobile-menu-open .header-phone {
-    padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .nav.mobile-menu-open .header-phone .phone-number {
-    font-size: 16px;
-    color: #1a1f2e;
-    font-weight: 600;
-  }
-
-  /* Адаптивность для hero секции */
+  /* Адаптивность для hero */
   .hero h1 {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   /* Адаптивность для сетки */
@@ -914,12 +930,7 @@ textarea.form-control:-webkit-autofill:active {
     grid-template-columns: 1fr;
   }
 
-  /* Адаптивность для калькулятора */
-  .calc-row {
-    grid-template-columns: 1fr;
-  }
-
-  /* Адаптивность для контактов */
+  /* Контакты */
   .contact-section {
     padding: 50px 0;
   }
@@ -937,17 +948,5 @@ textarea.form-control:-webkit-autofill:active {
   .btn-primary {
     padding: 14px 20px;
     font-size: 15px;
-  }
-}
-
-/* ===== ПЛАНШЕТЫ ===== */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .header-phones {
-    flex-direction: row;
-    gap: 12px;
-  }
-
-  .header-phone .phone-number {
-    font-size: 13px;
   }
 }
