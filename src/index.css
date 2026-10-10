@@ -817,7 +817,109 @@ textarea.form-control:-webkit-autofill:active {
   }
 }
 
+/* ===== МОБИЛЬНОЕ МЕНЮ ===== */
 @media (max-width: 768px) {
+  /* Скрываем телефоны в шапке на мобильных */
+  .header-phones {
+    display: none;
+  }
+
+  /* Показываем кнопку меню */
+  .menu-toggle {
+    display: block;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #1a1f2e;
+    cursor: pointer;
+    padding: 5px 10px;
+    line-height: 1;
+  }
+
+  /* Мобильное меню */
+  .nav ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin: 0;
+    list-style: none;
+  }
+
+  .nav ul.active {
+    display: flex;
+  }
+
+  .nav ul li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav ul li a {
+    display: block;
+    padding: 12px 0;
+    color: #1a1f2e;
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .nav ul li:last-child a {
+    border-bottom: none;
+  }
+
+  /* Показываем телефоны в открытом мобильном меню */
+  .nav.mobile-menu-open .header-phones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  .nav.mobile-menu-open .header-phone {
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav.mobile-menu-open .header-phone .phone-number {
+    font-size: 16px;
+    color: #1a1f2e;
+    font-weight: 600;
+  }
+
+  /* Адаптивность для hero секции */
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  /* Адаптивность для сетки */
+  .hero-grid,
+  .contact-grid,
+  .calc-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Адаптивность для калькулятора */
+  .calc-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Адаптивность для контактов */
   .contact-section {
     padding: 50px 0;
   }
@@ -838,62 +940,14 @@ textarea.form-control:-webkit-autofill:active {
   }
 }
 
-/* Адаптивность для калькулятора */
-@media (max-width: 768px) {
-  .calc-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-grid,
-  .contact-grid,
-  .calc-row {
-    grid-template-columns: 1fr;
-  }
-  .hero h1 {
-    font-size: 32px;
-  }
-  .nav ul {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  }
-  .nav ul.active {
-    display: flex;
-  }
-  .menu-toggle {
-    display: block;
-  }
-}
-
-@media (max-width: 768px) {
+/* ===== ПЛАНШЕТЫ ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
   .header-phones {
-    display: none;
-  }
-
-  .nav.mobile-menu-open .header-phones {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     gap: 12px;
-    margin: 15px 0;
   }
 
-  .nav.mobile-menu-open .header-phone {
-    padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-  }
-
-  .nav.mobile-menu-open .header-phone .phone-number {
-    font-size: 16px;
+  .header-phone .phone-number {
+    font-size: 13px;
   }
 }

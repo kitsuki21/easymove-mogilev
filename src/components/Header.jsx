@@ -5,7 +5,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <div className="container nav">
+      <div className={`container nav ${menuOpen ? "mobile-menu-open" : ""}`}>
         <div className="logo">
           <img
             className="img-logo"
@@ -48,10 +48,9 @@ export default function Header() {
           </a>
         </div>
 
-        <button
-          className="menu-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
-        ></button>
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? "✕" : "☰"}
+        </button>
       </div>
     </header>
   );
