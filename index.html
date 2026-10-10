@@ -62,7 +62,28 @@
 
     <!-- canonical URL (чтобы Google не дублировал страницы) -->
     <link rel="canonical" href="https://easymove-mogilev.netlify.app" />
-
+  </head>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "esyMoveMogilev",
+      "description": "Грузоперевозки по Могилёву и Беларуси",
+      "url": "https://easymove-mogilev.netlify.app",
+      "telephone": "+37544785-88-38",
+      "logo": "https://easymove-mogilev.netlify.app/logo.png",
+      "image": "https://easymove-mogilev.netlify.app/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Могилёв",
+        "addressCountry": "BY"
+      },
+      "openingHours": "Mo-Su 00:00-23:59"
+    }
+  </script>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
     <script type="text/javascript">
       (function (m, e, t, r, i, k, a) {
         m[i] =
@@ -108,27 +129,5 @@
           alt=""
         /></div
     ></noscript>
-  </head>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "esyMoveMogilev",
-      "description": "Грузоперевозки по Могилёву и Беларуси",
-      "url": "https://easymove-mogilev.netlify.app",
-      "telephone": "+37544785-88-38",
-      "logo": "https://easymove-mogilev.netlify.app/logo.png",
-      "image": "https://easymove-mogilev.netlify.app/logo.png",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Могилёв",
-        "addressCountry": "BY"
-      },
-      "openingHours": "Mo-Su 00:00-23:59"
-    }
-  </script>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
