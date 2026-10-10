@@ -5,10 +5,27 @@ import tree from "../assets/tree.jpg";
 import rolls from "../assets/black.jpg";
 import piano from "../assets/piano.jpg";
 import furniture from "../assets/furniture.jpg";
+import tent from "../assets/tent.jpg";
+import tree_tent from "../assets/tree_tent.jpg";
 
 export default function Fleet() {
   // 2. Используем импортированные переменные вместо строк
   const cargoTypes = [
+    {
+      img: tent, // <-- Здесь переменная, а не строка в кавычках
+      title: "Стройматериалы",
+      text: "Боковая и верхняя загрузка до 20 м³ до 3,5 тонны",
+    },
+    {
+      img: tree_tent, // <-- Здесь переменная, а не строка в кавычках
+      title: "Стройматериалы",
+      text: "Плиты цсп, цемент, сухие смеси, кирпич и другие строительные материалы",
+    },
+    {
+      img: buildingMat, // <-- Здесь переменная, а не строка в кавычках
+      title: "Стройматериалы",
+      text: "Цемент, сухие смеси, кирпич и другие строительные материалы",
+    },
     {
       img: buildingMat, // <-- Здесь переменная, а не строка в кавычках
       title: "Стройматериалы",

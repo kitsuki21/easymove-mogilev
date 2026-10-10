@@ -73,6 +73,49 @@ header {
   cursor: pointer;
 }
 
+.header-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.header-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.header-phone:hover {
+  opacity: 0.7;
+}
+
+/* Маленький цветной индикатор оператора */
+.operator-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.operator-indicator.a1 {
+  background: #ff9500; /* Оранжевый A1 */
+}
+
+.operator-indicator.mts {
+  background: #e30611; /* Красный МТС */
+}
+
+/* Номер телефона */
+.header-phone .phone-number {
+  color: #1a1f2e; /* Тёмный цвет для светлой шапки */
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 /* Hero */
 .hero {
   background:
@@ -696,6 +739,60 @@ textarea.form-control:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+.phones-label {
+  margin-bottom: 8px;
+}
+
+.phone-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+/* Общий стиль бейджа оператора */
+.operator-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  min-width: 42px;
+  letter-spacing: 0.5px;
+  flex-shrink: 0; /* Чтобы бейдж не сжимался */
+}
+
+/* Стиль для A1 (оранжево-желтый акцент) */
+.operator-badge.a1 {
+  background: rgba(255, 165, 0, 0.15);
+  color: #ffb700;
+  border: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+/* Стиль для МТС (красный акцент) */
+.operator-badge.mts {
+  background: rgba(255, 50, 50, 0.15);
+  color: #ff5555;
+  border: 1px solid rgba(255, 50, 50, 0.3);
+}
+
+/* Ссылка на телефон */
+.contact-phone-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  transition:
+    color 0.2s,
+    opacity 0.2s;
+}
+
+.contact-phone-link:hover {
+  color: #ff7a00; /* Оранжевый при наведении */
+  opacity: 0.9;
+}
+
 /* ===== АДАПТИВНОСТЬ ===== */
 @media (max-width: 968px) {
   .contact-section {
@@ -774,5 +871,29 @@ textarea.form-control:-webkit-autofill:active {
   }
   .menu-toggle {
     display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-phones {
+    display: none;
+  }
+
+  .nav.mobile-menu-open .header-phones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+  }
+
+  .nav.mobile-menu-open .header-phone {
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+  }
+
+  .nav.mobile-menu-open .header-phone .phone-number {
+    font-size: 16px;
   }
 }

@@ -4,7 +4,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header>
+    <header className="header">
       <div className="container nav">
         <div className="logo">
           <img
@@ -13,6 +13,7 @@ export default function Header() {
             alt="easyMove Mogilev - грузоперевозки"
           />
         </div>
+
         <ul className={menuOpen ? "active" : ""}>
           <li>
             <a href="#services" onClick={() => setMenuOpen(false)}>
@@ -35,12 +36,22 @@ export default function Header() {
             </a>
           </li>
         </ul>
-        <a href="tel:+375447858838" className="phone">
-          📞 +375 (44) 785-88-38
-        </a>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-          ☰
-        </button>
+
+        <div className="header-phones">
+          <a href="tel:+375447858838" className="header-phone">
+            <span className="operator-indicator a1"></span>
+            <span className="phone-number">+375 (44) 785-88-38</span>
+          </a>
+          <a href="tel:+375298384338" className="header-phone">
+            <span className="operator-indicator mts"></span>
+            <span className="phone-number">+375 (29) 838-43-38</span>
+          </a>
+        </div>
+
+        <button
+          className="menu-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+        ></button>
       </div>
     </header>
   );

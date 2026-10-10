@@ -111,12 +111,23 @@ export default function Contact() {
               <p>
                 <strong>Адрес:</strong> г. Дрибин, ул. Юбилейная, 2
               </p>
-              <p>
-                <strong>Телефон:</strong>{" "}
-                <a href="tel:+37544785-88-38" className="contact-phone-link">
-                  +375 (44) 785-88-38
-                </a>
-              </p>
+
+              <div className="phones-block">
+                <div className="phone-row">
+                  <span className="operator-badge a1">A1</span>
+                  <a href="tel:+375447858838" className="contact-phone-link">
+                    +375 (44) 785-88-38
+                  </a>
+                </div>
+
+                <div className="phone-row">
+                  <span className="operator-badge mts">МТС</span>
+                  <a href="tel:+375298384338" className="contact-phone-link">
+                    +375 (29) 838-43-38
+                  </a>
+                </div>
+              </div>
+
               <p>
                 <strong>Email:</strong>{" "}
                 <a
